@@ -1,0 +1,6 @@
+query questionsWithAnswers {
+  questionsWithAnswers {
+    question
+    answers
+  }
+}
