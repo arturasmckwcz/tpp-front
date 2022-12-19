@@ -12,7 +12,11 @@ export type QuestionsWithAnswersQuery = {
   questionsWithAnswers?: Array<{
     __typename?: "QuestionWithAnswers";
     question?: string | null;
-    answers?: Array<string | null> | null;
+    answers?: Array<{
+      __typename?: "Answer";
+      points?: number | null;
+      answer?: string | null;
+    } | null> | null;
   } | null> | null;
 };
 
@@ -20,7 +24,10 @@ export const QuestionsWithAnswersDocument = gql`
   query questionsWithAnswers {
     questionsWithAnswers {
       question
-      answers
+      answers {
+        points
+        answer
+      }
     }
   }
 `;

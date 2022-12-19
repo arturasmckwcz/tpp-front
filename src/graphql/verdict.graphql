@@ -1,0 +1,6 @@
+query verdict($score: Int) {
+  verdict(score: $score) {
+    score
+    verdict
+  }
+}

@@ -1,6 +1,9 @@
 query questionsWithAnswers {
   questionsWithAnswers {
     question
-    answers
+    answers {
+      points
+      answer
+    }
   }
 }
