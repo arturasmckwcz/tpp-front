@@ -1,14 +1,15 @@
-import { useQuestionsWithAnswersQuery } from '../../graphql/quiz.generated';
+import { TheQuiz } from '../App';
 
-const Quiz = () => {
-  const { data: quiz, loading, error } = useQuestionsWithAnswersQuery();
+type Props = {
+  quiz: TheQuiz;
+  setQuiz: React.Dispatch<React.SetStateAction<TheQuiz>>;
+};
 
+const Quiz = ({ quiz, setQuiz }: Props) => {
   return (
     <>
-      <h1>This is the Quiz!</h1>
-      <pre>quiz: {JSON.stringify(quiz, null, 2)}</pre>
-      <pre>loading: {String(loading)}</pre>
-      <pre>error: {JSON.stringify(error, null, 2)}</pre>
+      <h1>Are you introvert or extravert? Let's figure out!</h1>
+      <p>Please pick the most appropriate answers</p>
     </>
   );
 };
