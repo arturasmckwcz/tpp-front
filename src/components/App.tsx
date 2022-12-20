@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import client from '../graphql/client';
 import PageLayout from './common/PageLayout';
-import Quiz from './pages/Quiz';
+import QuizComponent from './pages/Quiz';
 import Start from './pages/Start';
 import Verdict from './pages/Verdict';
 import { QuestionWithAnswers } from '../graphql/schema.generated';
 
-export type TheQuiz = {
+export type Quiz = {
   email: string | null;
   questions: QuestionWithAnswers[] | null;
   current: number;
@@ -17,7 +17,7 @@ export type TheQuiz = {
 };
 
 const App = () => {
-  const [theQuiz, setTheQuiz] = useState<TheQuiz>({
+  const [quiz, setQuiz] = useState<Quiz>({
     email: null,
     questions: null,
     current: 0,
@@ -29,17 +29,14 @@ const App = () => {
       <Router>
         <PageLayout>
           <Routes>
-            <Route
-              path='/'
-              element={<Start quiz={theQuiz} setQuiz={setTheQuiz} />}
-            />
+            <Route path='/' element={<Start setQuiz={setQuiz} />} />
             <Route
               path='/quiz'
-              element={<Quiz quiz={theQuiz} setQuiz={setTheQuiz} />}
+              element={<QuizComponent quiz={quiz} setQuiz={setQuiz} />}
             />
             <Route
               path='/verdict'
-              element={<Verdict quiz={theQuiz} setQuiz={setTheQuiz} />}
+              element={<Verdict quiz={quiz} setQuiz={setQuiz} />}
             />
             <Route path='*' element={<h1>Page not found!</h1>} />
           </Routes>

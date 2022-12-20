@@ -1,8 +1,8 @@
-import { TheQuiz } from '../App';
+import { Quiz as QuizType } from '../App';
 
 type Props = {
-  quiz: TheQuiz;
-  setQuiz: React.Dispatch<React.SetStateAction<TheQuiz>>;
+  quiz: QuizType;
+  setQuiz: React.Dispatch<React.SetStateAction<QuizType>>;
 };
 
 const Quiz = ({ quiz, setQuiz }: Props) => {
