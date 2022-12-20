@@ -1,9 +1,9 @@
 import { useVerdictLazyQuery } from '../../graphql/verdict.generated';
-import { TheQuiz } from '../App';
+import { Quiz } from '../App';
 
 type Props = {
-  quiz: TheQuiz;
-  setQuiz: React.Dispatch<React.SetStateAction<TheQuiz>>;
+  quiz: Quiz;
+  setQuiz: React.Dispatch<React.SetStateAction<Quiz>>;
 };
 
 const Verdict = ({ quiz }: Props) => {

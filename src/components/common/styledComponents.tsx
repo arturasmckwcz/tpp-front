@@ -38,5 +38,10 @@ export const LayoutWrapper = styled(Layout)`
   }
   .ant-layout-content {
     padding: 0 ${sidesPadding} 2rem ${sidesPadding};
+    background: #fff;
+    .ant-btn {
+      padding: 0 0.5rem;
+      color: #001529;
+    }
   }
 `;
