@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 
-import { Quiz } from '../App';
+import { Quiz, quizInit } from '../common/quiz';
+import { questions } from '../common/quiz';
 
 type Props = {
   setQuiz: React.Dispatch<React.SetStateAction<Quiz>>;
@@ -18,7 +19,7 @@ const Start = ({ setQuiz }: Props) => {
         labelCol={{ span: 2 }}
         wrapperCol={{ span: 16 }}
         onFinish={formData => {
-          setQuiz(prev => ({ ...prev, email: formData.email }));
+          setQuiz({ ...quizInit, questions, email: formData.email });
           navigate('/quiz');
         }}
         autoComplete='off'
