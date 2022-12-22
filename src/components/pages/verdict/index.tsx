@@ -23,7 +23,7 @@ const Verdict = ({ quiz }: Props) => {
             <Button type='link' onClick={() => navigate('/quiz')}>
               Go to Quiz
             </Button>
-            <p>Or you may start ir over entering email address</p>
+            <p>Or you may start over by entering email address</p>
             <Button type='link' onClick={() => navigate('/')}>
               Go to Start
             </Button>
