@@ -2,16 +2,33 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 
 import { Quiz, quizInit } from '../common/quiz';
-import { questions } from '../common/quiz';
 import { getQuizStatus, QuizStatus } from '../common/helpers';
+import { QuestionWithAnswers } from '../../graphql/schema.generated';
+import { useQuestionsWithAnswersLazyQuery } from '../../graphql/quiz.generated';
+import { useEffect } from 'react';
 
 type Props = {
+  questions: QuestionWithAnswers[];
+  setQuestions: React.Dispatch<React.SetStateAction<QuestionWithAnswers[]>>;
   quiz: Quiz;
   setQuiz: React.Dispatch<React.SetStateAction<Quiz>>;
 };
 
-const Start = ({ quiz, setQuiz }: Props) => {
+const Start = ({ questions, setQuestions, quiz, setQuiz }: Props) => {
   const navigate = useNavigate();
+  const [fetchQuiz] = useQuestionsWithAnswersLazyQuery();
+
+  useEffect(() => {
+    (async () => {
+      if (!questions.length) {
+        try {
+          const data = (await fetchQuiz()).data
+            ?.questionsWithAnswers as QuestionWithAnswers[];
+          setQuestions(data);
+        } catch (error) {}
+      }
+    })();
+  }, [fetchQuiz, questions.length, setQuestions]);
 
   return (
     <>
@@ -21,7 +38,10 @@ const Start = ({ quiz, setQuiz }: Props) => {
         labelCol={{ span: 2 }}
         wrapperCol={{ span: 16 }}
         onFinish={formData => {
-          setQuiz({ ...quizInit, questions, email: formData.email });
+          setQuiz({
+            ...quizInit(questions.length),
+            email: formData.email,
+          });
           navigate('/quiz');
         }}
         autoComplete='off'

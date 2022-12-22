@@ -8,7 +8,7 @@ export enum QuizStatus {
 
 export const getQuizStatus = (quiz: Quiz): QuizStatus => {
   if (!quiz.email) return QuizStatus.NOT_STARTED;
-  if (quiz.questions?.length && quiz.current < quiz.questions?.length)
+  if (quiz.countQuestions && quiz.current < quiz.countQuestions)
     return QuizStatus.IN_PROGRESS;
   return QuizStatus.FINISHED;
 };

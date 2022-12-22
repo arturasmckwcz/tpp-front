@@ -8,19 +8,37 @@ import QuizComponent from './pages/quiz';
 import Start from './pages/Start';
 import Verdict from './pages/verdict';
 import { Quiz, quizInit } from './common/quiz';
+import { QuestionWithAnswers } from '../graphql/schema.generated';
 
 const App = () => {
-  const [quiz, setQuiz] = useState<Quiz>(quizInit);
+  const [quiz, setQuiz] = useState<Quiz>(quizInit(0));
+  const [questions, setQuestions] = useState<QuestionWithAnswers[]>([]);
 
   return (
     <ApolloProvider client={client}>
       <Router>
         <PageLayout>
           <Routes>
-            <Route path='/' element={<Start quiz={quiz} setQuiz={setQuiz} />} />
+            <Route
+              path='/'
+              element={
+                <Start
+                  questions={questions}
+                  setQuestions={setQuestions}
+                  quiz={quiz}
+                  setQuiz={setQuiz}
+                />
+              }
+            />
             <Route
               path='/quiz'
-              element={<QuizComponent quiz={quiz} setQuiz={setQuiz} />}
+              element={
+                <QuizComponent
+                  questions={questions}
+                  quiz={quiz}
+                  setQuiz={setQuiz}
+                />
+              }
             />
             <Route
               path='/verdict'
