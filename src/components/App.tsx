@@ -6,7 +6,7 @@ import client from '../graphql/client';
 import PageLayout from './common/PageLayout';
 import QuizComponent from './pages/quiz';
 import Start from './pages/Start';
-import Verdict from './pages/Verdict';
+import Verdict from './pages/verdict';
 import { Quiz, quizInit } from './common/quiz';
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
       <Router>
         <PageLayout>
           <Routes>
-            <Route path='/' element={<Start setQuiz={setQuiz} />} />
+            <Route path='/' element={<Start quiz={quiz} setQuiz={setQuiz} />} />
             <Route
               path='/quiz'
               element={<QuizComponent quiz={quiz} setQuiz={setQuiz} />}

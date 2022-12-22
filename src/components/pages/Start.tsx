@@ -3,12 +3,14 @@ import { Button, Form, Input } from 'antd';
 
 import { Quiz, quizInit } from '../common/quiz';
 import { questions } from '../common/quiz';
+import { getQuizStatus, QuizStatus } from '../common/helpers';
 
 type Props = {
+  quiz: Quiz;
   setQuiz: React.Dispatch<React.SetStateAction<Quiz>>;
 };
 
-const Start = ({ setQuiz }: Props) => {
+const Start = ({ quiz, setQuiz }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -44,6 +46,14 @@ const Start = ({ setQuiz }: Props) => {
           </Button>
         </Form.Item>
       </Form>
+      {getQuizStatus(quiz) === QuizStatus.IN_PROGRESS && (
+        <>
+          <p>Or you may return to the questions</p>
+          <Button type='link' onClick={() => navigate('/quiz')}>
+            Go to Verdict
+          </Button>
+        </>
+      )}
     </>
   );
 };

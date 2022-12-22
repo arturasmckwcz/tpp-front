@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Quiz as QuizType } from '../../common/quiz';
 import Question from './Question';
 import { Button } from 'antd';
+import { getQuizStatus, QuizStatus } from '../../common/helpers';
 
 type Props = {
   quiz: QuizType;
@@ -11,26 +12,42 @@ type Props = {
 
 const Quiz = ({ quiz, setQuiz }: Props) => {
   const navigate = useNavigate();
+  const quizStatus = getQuizStatus(quiz);
 
-  const isQuizInProgress = () =>
-    quiz.questions?.length && quiz.current < quiz.questions?.length;
+  const render = () => {
+    switch (quizStatus) {
+      case QuizStatus.IN_PROGRESS:
+        return (
+          <>
+            <p>Please pick the most appropriate answer</p>
+            <Question quiz={quiz} setQuiz={setQuiz} />
+          </>
+        );
+      case QuizStatus.FINISHED:
+        return (
+          <>
+            <p>You have answered all the questions</p>
+            <Button type='link' onClick={() => navigate('/verdict')}>
+              Go to Verdict
+            </Button>
+          </>
+        );
+      default:
+        return (
+          <>
+            <p>Please enter your email to start the quiz</p>
+            <Button type='link' onClick={() => navigate('/')}>
+              Go to Start
+            </Button>
+          </>
+        );
+    }
+  };
 
   return (
     <>
       <h1>Are you introvert or extravert? Let's figure out!</h1>
-      {isQuizInProgress() ? (
-        <>
-          <p>Please pick the most appropriate answer</p>
-          <Question quiz={quiz} setQuiz={setQuiz} />
-        </>
-      ) : (
-        <>
-          <p>You have answered all the questions</p>
-          <Button type='link' onClick={() => navigate('/verdict')}>
-            Go to Verdict
-          </Button>
-        </>
-      )}
+      {render()}
     </>
   );
 };
