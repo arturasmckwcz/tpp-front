@@ -1,5 +1,5 @@
 import { useVerdictLazyQuery } from '../../graphql/verdict.generated';
-import { Quiz } from '../App';
+import { Quiz } from '../common/quiz';
 
 type Props = {
   quiz: Quiz;
