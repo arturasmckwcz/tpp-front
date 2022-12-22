@@ -50,7 +50,7 @@ const Start = ({ quiz, setQuiz }: Props) => {
         <>
           <p>Or you may return to the questions</p>
           <Button type='link' onClick={() => navigate('/quiz')}>
-            Go to Verdict
+            Go to Quiz
           </Button>
         </>
       )}

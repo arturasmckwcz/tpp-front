@@ -30,6 +30,10 @@ const Quiz = ({ quiz, setQuiz }: Props) => {
             <Button type='link' onClick={() => navigate('/verdict')}>
               Go to Verdict
             </Button>
+            <p>Or start by entering email</p>
+            <Button type='link' onClick={() => navigate('/')}>
+              Go to Start
+            </Button>
           </>
         );
       default:
