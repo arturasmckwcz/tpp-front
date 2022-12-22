@@ -17,7 +17,7 @@ const App = () => {
       <Router>
         <PageLayout>
           <Routes>
-            <Route path='/' element={<Start setQuiz={setQuiz} />} />
+            <Route path='/' element={<Start quiz={quiz} setQuiz={setQuiz} />} />
             <Route
               path='/quiz'
               element={<QuizComponent quiz={quiz} setQuiz={setQuiz} />}
