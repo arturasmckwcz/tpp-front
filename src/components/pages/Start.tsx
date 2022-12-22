@@ -2,15 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 
 import { Quiz, quizInit } from '../common/quiz';
-import { questions } from '../common/quiz';
 import { getQuizStatus, QuizStatus } from '../common/helpers';
 
 type Props = {
+  countQuestions: number;
   quiz: Quiz;
   setQuiz: React.Dispatch<React.SetStateAction<Quiz>>;
 };
 
-const Start = ({ quiz, setQuiz }: Props) => {
+const Start = ({ countQuestions, quiz, setQuiz }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -21,7 +21,7 @@ const Start = ({ quiz, setQuiz }: Props) => {
         labelCol={{ span: 2 }}
         wrapperCol={{ span: 16 }}
         onFinish={formData => {
-          setQuiz({ ...quizInit, questions, email: formData.email });
+          setQuiz({ ...quizInit(countQuestions), email: formData.email });
           navigate('/quiz');
         }}
         autoComplete='off'

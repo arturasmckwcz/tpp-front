@@ -1,18 +1,16 @@
-import { QuestionWithAnswers } from '../../graphql/schema.generated';
-
 export type Quiz = {
   email: string | null;
-  questions: QuestionWithAnswers[];
+  countQuestions: number;
   current: number;
   score: number;
 };
 
-export const quizInit = {
+export const quizInit = (countQuestions: number): Quiz => ({
   email: null,
-  questions: [],
+  countQuestions,
   current: 0,
   score: 0,
-};
+});
 
 export const questions = [
   {

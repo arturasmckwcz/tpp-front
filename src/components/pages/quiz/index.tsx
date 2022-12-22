@@ -4,13 +4,15 @@ import { Quiz as QuizType } from '../../common/quiz';
 import Question from './Question';
 import { Button } from 'antd';
 import { getQuizStatus, QuizStatus } from '../../common/helpers';
+import { QuestionWithAnswers } from '../../../graphql/schema.generated';
 
 type Props = {
+  questions: QuestionWithAnswers[];
   quiz: QuizType;
   setQuiz: React.Dispatch<React.SetStateAction<QuizType>>;
 };
 
-const Quiz = ({ quiz, setQuiz }: Props) => {
+const Quiz = ({ questions, quiz, setQuiz }: Props) => {
   const navigate = useNavigate();
   const quizStatus = getQuizStatus(quiz);
 
@@ -20,7 +22,7 @@ const Quiz = ({ quiz, setQuiz }: Props) => {
         return (
           <>
             <p>Please pick the most appropriate answer</p>
-            <Question quiz={quiz} setQuiz={setQuiz} />
+            <Question questions={questions} quiz={quiz} setQuiz={setQuiz} />
           </>
         );
       case QuizStatus.FINISHED:

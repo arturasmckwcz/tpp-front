@@ -1,14 +1,16 @@
 import { Button, Form, Modal, Radio, Space } from 'antd';
 import { useState } from 'react';
 
+import { QuestionWithAnswers } from '../../../graphql/schema.generated';
 import { Quiz } from '../../common/quiz';
 
 interface Props {
+  questions: QuestionWithAnswers[];
   quiz: Quiz;
   setQuiz: React.Dispatch<React.SetStateAction<Quiz>>;
 }
 
-const Question = ({ quiz, setQuiz }: Props) => {
+const Question = ({ questions, quiz, setQuiz }: Props) => {
   const [score, setScore] = useState<number>(0);
   const [isNothingSelected, setIsNothingSelected] = useState(false);
 
@@ -33,11 +35,11 @@ const Question = ({ quiz, setQuiz }: Props) => {
         autoComplete='off'
       >
         <Space direction='vertical'>
-          <h4>{quiz?.questions && quiz?.questions[quiz.current].question}</h4>
+          <h4>{questions && questions[quiz.current].question}</h4>
           <Form.Item>
             <Radio.Group onChange={e => setScore(e.target.value)}>
-              {quiz?.questions &&
-                quiz?.questions[quiz.current].answers?.map(answer => (
+              {questions &&
+                questions[quiz.current].answers?.map(answer => (
                   <Radio value={answer?.points} key={answer?.points}>
                     {answer?.answer}
                   </Radio>

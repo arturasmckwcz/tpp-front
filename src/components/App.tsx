@@ -7,20 +7,35 @@ import PageLayout from './common/PageLayout';
 import QuizComponent from './pages/quiz';
 import Start from './pages/Start';
 import Verdict from './pages/verdict';
-import { Quiz, quizInit } from './common/quiz';
+import { Quiz, quizInit, questions } from './common/quiz';
 
 const App = () => {
-  const [quiz, setQuiz] = useState<Quiz>(quizInit);
+  const [quiz, setQuiz] = useState<Quiz>(quizInit(questions.length));
 
   return (
     <ApolloProvider client={client}>
       <Router>
         <PageLayout>
           <Routes>
-            <Route path='/' element={<Start quiz={quiz} setQuiz={setQuiz} />} />
+            <Route
+              path='/'
+              element={
+                <Start
+                  countQuestions={questions.length}
+                  quiz={quiz}
+                  setQuiz={setQuiz}
+                />
+              }
+            />
             <Route
               path='/quiz'
-              element={<QuizComponent quiz={quiz} setQuiz={setQuiz} />}
+              element={
+                <QuizComponent
+                  questions={questions}
+                  quiz={quiz}
+                  setQuiz={setQuiz}
+                />
+              }
             />
             <Route
               path='/verdict'
