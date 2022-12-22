@@ -7,10 +7,12 @@ import PageLayout from './common/PageLayout';
 import QuizComponent from './pages/quiz';
 import Start from './pages/Start';
 import Verdict from './pages/verdict';
-import { Quiz, quizInit, questions } from './common/quiz';
+import { Quiz, quizInit } from './common/quiz';
+import { QuestionWithAnswers } from '../graphql/schema.generated';
 
 const App = () => {
-  const [quiz, setQuiz] = useState<Quiz>(quizInit(questions.length));
+  const [quiz, setQuiz] = useState<Quiz>(quizInit(0));
+  const [questions, setQuestions] = useState<QuestionWithAnswers[]>([]);
 
   return (
     <ApolloProvider client={client}>
@@ -21,7 +23,8 @@ const App = () => {
               path='/'
               element={
                 <Start
-                  countQuestions={questions.length}
+                  questions={questions}
+                  setQuestions={setQuestions}
                   quiz={quiz}
                   setQuiz={setQuiz}
                 />
