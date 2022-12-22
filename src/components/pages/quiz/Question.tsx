@@ -34,19 +34,19 @@ const Question = ({ questions, quiz, setQuiz }: Props) => {
         onFinish={submitAnswer}
         autoComplete='off'
       >
-        <Space direction='vertical'>
-          <h4>{questions && questions[quiz.current].question}</h4>
-          <Form.Item>
-            <Radio.Group onChange={e => setScore(e.target.value)}>
+        <h4>{questions && questions[quiz.current].question}</h4>
+        <Form.Item>
+          <Radio.Group onChange={e => setScore(e.target.value)}>
+            <Space direction='vertical'>
               {questions &&
                 questions[quiz.current].answers?.map(answer => (
                   <Radio value={answer?.points} key={answer?.points}>
                     {answer?.answer}
                   </Radio>
                 ))}
-            </Radio.Group>
-          </Form.Item>
-        </Space>
+            </Space>
+          </Radio.Group>
+        </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 0, span: 16 }}>
           <Button type='primary' htmlType='submit'>
