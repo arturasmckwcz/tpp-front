@@ -19,31 +19,31 @@ export type Scalars = {
 };
 
 export type Answer = {
-  __typename?: "Answer";
-  answer?: Maybe<Scalars["String"]>;
-  id?: Maybe<Scalars["Int"]>;
-  points?: Maybe<Scalars["Int"]>;
+  __typename?: 'Answer';
+  answer?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  points?: Maybe<Scalars['Int']>;
 };
 
 export type Query = {
-  __typename?: "Query";
+  __typename?: 'Query';
   questionsWithAnswers?: Maybe<Array<Maybe<QuestionWithAnswers>>>;
   verdict?: Maybe<Verdict>;
 };
 
 export type QueryVerdictArgs = {
-  score?: InputMaybe<Scalars["Int"]>;
+  score?: InputMaybe<Scalars['Int']>;
 };
 
 export type QuestionWithAnswers = {
-  __typename?: "QuestionWithAnswers";
+  __typename?: 'QuestionWithAnswers';
   answers?: Maybe<Array<Maybe<Answer>>>;
-  id?: Maybe<Scalars["Int"]>;
-  question?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars['Int']>;
+  question?: Maybe<Scalars['String']>;
 };
 
 export type Verdict = {
-  __typename?: "Verdict";
-  score?: Maybe<Scalars["Int"]>;
-  verdict?: Maybe<Scalars["String"]>;
+  __typename?: 'Verdict';
+  score?: Maybe<Scalars['Int']>;
+  verdict?: Maybe<Scalars['String']>;
 };
