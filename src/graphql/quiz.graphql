@@ -2,6 +2,7 @@ query questionsWithAnswers {
   questionsWithAnswers {
     question
     answers {
+      id
       points
       answer
     }

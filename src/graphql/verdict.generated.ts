@@ -9,11 +9,7 @@ export type VerdictQueryVariables = Types.Exact<{
 
 export type VerdictQuery = {
   __typename?: "Query";
-  verdict?: {
-    __typename?: "Verdict";
-    score?: number | null;
-    verdict?: string | null;
-  } | null;
+  verdict?: { __typename?: "Verdict"; score: number; verdict: string } | null;
 };
 
 export const VerdictDocument = gql`
