@@ -19,31 +19,57 @@ export type Scalars = {
 };
 
 export type Answer = {
-  __typename?: 'Answer';
-  answer?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  points?: Maybe<Scalars['Int']>;
+  __typename?: "Answer";
+  answer: Scalars["String"];
+  id: Scalars["Int"];
+  points: Scalars["Int"];
+};
+
+export type AnswerInput = {
+  answer: Scalars["String"];
+  id: Scalars["Int"];
+  points: Scalars["Int"];
+  questionID: Scalars["Int"];
+};
+
+export type Mutation = {
+  __typename?: "Mutation";
+  setQuestionsAndAnswers?: Maybe<Scalars["Boolean"]>;
+};
+
+export type MutationSetQuestionsAndAnswersArgs = {
+  questionsAndAnswers: QuestionsAndAnswers;
 };
 
 export type Query = {
-  __typename?: 'Query';
+  __typename?: "Query";
   questionsWithAnswers?: Maybe<Array<Maybe<QuestionWithAnswers>>>;
   verdict?: Maybe<Verdict>;
 };
 
 export type QueryVerdictArgs = {
-  score?: InputMaybe<Scalars['Int']>;
+  score?: InputMaybe<Scalars["Int"]>;
+};
+
+export type Question = {
+  id: Scalars["Int"];
+  question: Scalars["String"];
 };
 
 export type QuestionWithAnswers = {
-  __typename?: 'QuestionWithAnswers';
-  answers?: Maybe<Array<Maybe<Answer>>>;
-  id?: Maybe<Scalars['Int']>;
-  question?: Maybe<Scalars['String']>;
+  __typename?: "QuestionWithAnswers";
+  answers: Array<Maybe<Answer>>;
+  id: Scalars["Int"];
+  question: Scalars["String"];
+};
+
+export type QuestionsAndAnswers = {
+  answers: Array<InputMaybe<AnswerInput>>;
+  questions: Array<InputMaybe<Question>>;
 };
 
 export type Verdict = {
-  __typename?: 'Verdict';
-  score?: Maybe<Scalars['Int']>;
-  verdict?: Maybe<Scalars['String']>;
+  __typename?: "Verdict";
+  score: Scalars["Int"];
+  verdict: Scalars["String"];
 };

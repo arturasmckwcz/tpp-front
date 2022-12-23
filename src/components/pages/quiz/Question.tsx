@@ -1,4 +1,4 @@
-import { Button, Form, Modal, Radio, Space } from 'antd';
+import { Button, Form, Modal, Radio, RadioChangeEvent, Space } from 'antd';
 import { useState } from 'react';
 
 import { QuestionWithAnswers } from '../../../graphql/schema.generated';
@@ -27,6 +27,13 @@ const Question = ({ questions, quiz, setQuiz }: Props) => {
     }
   };
 
+  const handleRadioChange = (e: RadioChangeEvent) => {
+    const answer = questions[quiz.current].answers?.find(
+      answer => answer?.id === e.target.value
+    );
+    setScore(answer?.points as number);
+  };
+
   return (
     <>
       <Form
@@ -36,11 +43,11 @@ const Question = ({ questions, quiz, setQuiz }: Props) => {
       >
         <h4>{questions && questions[quiz.current].question}</h4>
         <Form.Item>
-          <Radio.Group onChange={e => setScore(e.target.value)}>
+          <Radio.Group onChange={handleRadioChange}>
             <Space direction='vertical'>
               {questions &&
                 questions[quiz.current].answers?.map(answer => (
-                  <Radio value={answer?.points} key={answer?.points}>
+                  <Radio value={answer?.id} key={answer?.id}>
                     {answer?.answer}
                   </Radio>
                 ))}
