@@ -1,0 +1,393 @@
+mutation {
+  setQuestionsAndAnswers(
+    questionsAndAnswers: {
+      questions: [
+        {
+          id: 1
+          question: "You’re really busy at work and a colleague is telling you their life story and personal woes. You:"
+        }
+        {
+          id: 2
+          question: "You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:"
+        }
+        {
+          id: 3
+          question: "You’re having an animated discussion with a colleague regarding a project that you’re in charge of. You:"
+        }
+        {
+          id: 4
+          question: "You are taking part in a guided tour of a museum. You:"
+        }
+        {
+          id: 5
+          question: "During dinner parties at your home, you have a hard time with people who:"
+        }
+        {
+          id: 6
+          question: "You crack a joke at work, but nobody seems to have noticed. You:"
+        }
+        { id: 7, question: "This morning, your agenda seems to be free. You:" }
+        {
+          id: 8
+          question: "During dinner, the discussion moves to a subject about which you know nothing at all. You:"
+        }
+        {
+          id: 9
+          question: "You’re out with a group of friends and there’s a person who’s quite shy and doesn’t talk much. You:"
+        }
+        {
+          id: 10
+          question: "At work, somebody asks for your help for the hundredth time. You:"
+        }
+        {
+          id: 11
+          question: "You’ve been see a movie with your family and the reviews are mixed. You:"
+        }
+        { id: 12, question: "A friend arrives late for your meeting. You:" }
+        { id: 13, question: "You can’t find your car keys. You:" }
+        {
+          id: 14
+          question: "It’s time for your annual appraisal with your boss. You:"
+        }
+      ]
+      answers: [
+        {
+          id: 49
+          points: 10
+          questionID: 14
+          answer: "Go with great hesitation as these sessions are torture for you"
+        }
+        {
+          id: 50
+          points: 20
+          questionID: 14
+          answer: "Look forward to hearing what your boss thinks about you and expects from you"
+        }
+        {
+          id: 51
+          points: 10
+          questionID: 14
+          answer: "Rehearse ad nauseam the arguments and ideas that you’ve prepared for the meeting"
+        }
+        {
+          id: 52
+          points: 20
+          questionID: 14
+          answer: "Go along unprepared as you are confident and like improvising"
+        }
+        {
+          id: 45
+          points: 10
+          questionID: 13
+          answer: "Don’t want anyone to find out, so you take the bus instead"
+        }
+        {
+          id: 46
+          points: 20
+          questionID: 13
+          answer: "Panic and search madly without asking anyone for help"
+        }
+        {
+          id: 47
+          points: 10
+          questionID: 13
+          answer: "Grumble without telling your family why you’re in a bad mood"
+        }
+        {
+          id: 48
+          points: 20
+          questionID: 13
+          answer: "Accuse those around you for misplacing them"
+        }
+        {
+          id: 41
+          points: 10
+          questionID: 12
+          answer: "Say, ‘It’s not a problem,’ even if that’s not what you really think"
+        }
+        {
+          id: 42
+          points: 20
+          questionID: 12
+          answer: "Give them a filthy look and sulk for the rest of the evening"
+        }
+        {
+          id: 43
+          points: 10
+          questionID: 12
+          answer: "Tell them, ‘You’re too much! Have you seen the time?’"
+        }
+        {
+          id: 44
+          points: 20
+          questionID: 12
+          answer: "Make a scene in front of everyone"
+        }
+        {
+          id: 37
+          points: 10
+          questionID: 11
+          answer: "Don’t share your point of view with anyone"
+        }
+        {
+          id: 38
+          points: 20
+          questionID: 11
+          answer: "Didn’t like the film, but keep your views to yourself when asked"
+        }
+        {
+          id: 39
+          points: 10
+          questionID: 11
+          answer: "State your point of view with enthusiasm"
+        }
+        {
+          id: 40
+          points: 20
+          questionID: 11
+          answer: "Try to bring the others round to your point of view"
+        }
+        {
+          id: 33
+          points: 10
+          questionID: 10
+          answer: "Give them a hand, as usual"
+        }
+        {
+          id: 34
+          points: 20
+          questionID: 10
+          answer: "Accept — you’re known for being helpful"
+        }
+        {
+          id: 35
+          points: 10
+          questionID: 10
+          answer: "Ask them, please, to find somebody else for a change"
+        }
+        {
+          id: 36
+          points: 20
+          questionID: 10
+          answer: "Loudly make it known that you’re annoyed"
+        }
+        {
+          id: 33
+          points: 10
+          questionID: 9
+          answer: "Notice that they’re alone, but don’t go over to talk with them"
+        }
+        {
+          id: 34
+          points: 20
+          questionID: 9
+          answer: "Go and have a chat with them"
+        }
+        {
+          id: 35
+          points: 10
+          questionID: 9
+          answer: "Shoot some friendly smiles in their direction"
+        }
+        {
+          id: 36
+          points: 20
+          questionID: 9
+          answer: "Hardly notice them at all"
+        }
+        {
+          id: 29
+          points: 10
+          questionID: 8
+          answer: "Don’t dare show that you don’t know anything about the subject"
+        }
+        {
+          id: 30
+          points: 20
+          questionID: 8
+          answer: "Barely follow the discussion"
+        }
+        {
+          id: 31
+          points: 10
+          questionID: 8
+          answer: "Ask lots of questions to learn more about it"
+        }
+        {
+          id: 32
+          points: 20
+          questionID: 8
+          answer: "Change the subject of discussion"
+        }
+        {
+          id: 25
+          points: 10
+          questionID: 7
+          answer: "Know that somebody will find a reason to come and bother you"
+        }
+        {
+          id: 26
+          points: 20
+          questionID: 7
+          answer: "Heave a sigh of relief and look forward to a day without stress"
+        }
+        {
+          id: 27
+          points: 10
+          questionID: 7
+          answer: "Question your colleagues about a project that’s been worrying you"
+        }
+        {
+          id: 28
+          points: 20
+          questionID: 7
+          answer: "Pick up the phone and start filling up your agenda with meetings"
+        }
+        {
+          id: 21
+          points: 10
+          questionID: 6
+          answer: "Think it’s for the best — it was a lame joke anyway"
+        }
+        {
+          id: 22
+          points: 20
+          questionID: 6
+          answer: "Wait to share it with your friends after work"
+        }
+        {
+          id: 23
+          points: 10
+          questionID: 6
+          answer: "Try again a bit later with one of your colleagues"
+        }
+        {
+          id: 24
+          points: 20
+          questionID: 6
+          answer: "Keep telling it until they pay attention"
+        }
+        {
+          id: 17
+          points: 10
+          questionID: 5
+          answer: "Ask you to tell a story in front of everyone else"
+        }
+        {
+          id: 18
+          points: 20
+          questionID: 5
+          answer: "Talk privately between themselves"
+        }
+        {
+          id: 19
+          points: 10
+          questionID: 5
+          answer: "Hang around you all evening"
+        }
+        {
+          id: 20
+          points: 20
+          questionID: 5
+          answer: "Always drag the conversation back to themselves"
+        }
+        {
+          id: 13
+          points: 10
+          questionID: 4
+          answer: "Are a bit too far towards the back so don’t really hear what the guide is saying"
+        }
+        {
+          id: 14
+          points: 20
+          questionID: 4
+          answer: "Follow the group without question"
+        }
+        {
+          id: 15
+          points: 10
+          questionID: 4
+          answer: "Make sure that everyone is able to hear properly"
+        }
+        {
+          id: 16
+          points: 20
+          questionID: 4
+          answer: "Are right up the front, adding your own comments in a loud voice"
+        }
+        {
+          id: 1
+          points: 10
+          questionID: 1
+          answer: "Don’t dare to interrupt them"
+        }
+        {
+          id: 2
+          points: 20
+          questionID: 1
+          answer: "Think it’s more important to give them some of your time; work can wait"
+        }
+        {
+          id: 3
+          points: 10
+          questionID: 1
+          answer: "Listen, but with only with half an ear"
+        }
+        {
+          id: 4
+          points: 20
+          questionID: 1
+          answer: "Interrupt and explain that you are really busy at the moment"
+        }
+        {
+          id: 5
+          points: 20
+          questionID: 2
+          answer: "Look at your watch every two minutes"
+        }
+        {
+          id: 6
+          points: 20
+          questionID: 2
+          answer: "Bubble with inner anger, but keep quiet"
+        }
+        {
+          id: 7
+          points: 20
+          questionID: 2
+          answer: "Explain to other equally impatient people in the room that the doctor is always running late"
+        }
+        {
+          id: 8
+          points: 20
+          questionID: 2
+          answer: "Complain in a loud voice, while tapping your foot impatiently"
+        }
+        {
+          id: 9
+          points: 20
+          questionID: 3
+          answer: "Don’t dare contradict them"
+        }
+        {
+          id: 10
+          points: 20
+          questionID: 3
+          answer: "Think that they are obviously right"
+        }
+        {
+          id: 11
+          points: 20
+          questionID: 3
+          answer: "Defend your own point of view, tooth and nail"
+        }
+        {
+          id: 12
+          points: 20
+          questionID: 3
+          answer: "Continuously interrupt your colleague"
+        }
+      ]
+    }
+  )
+}
