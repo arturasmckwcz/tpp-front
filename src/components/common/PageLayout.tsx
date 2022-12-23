@@ -8,7 +8,7 @@ import MenuBars from './MenuBars';
 const { Header, Content } = Layout;
 
 const PageLayout = (props: { children: ReactNode }) => (
-  <ConfigProvider theme={{ token: { colorPrimary: '#f5f5f5' } }}>
+  <ConfigProvider theme={{ token: { colorPrimary: '#aaa' } }}>
     <LayoutWrapper>
       <Header>
         <MenuBars />
