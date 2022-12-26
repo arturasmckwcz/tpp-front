@@ -19,7 +19,11 @@ const MenuBars = () => {
 
   return (
     <>
-      <Button type='link' onClick={() => setCollapsed(prevState => !prevState)}>
+      <Button
+        data-test='menu-bar-bttn'
+        type='link'
+        onClick={() => setCollapsed(prevState => !prevState)}
+      >
         <MenuOutlined />
       </Button>
       <Menu

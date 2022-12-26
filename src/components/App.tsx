@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import client from '../graphql/client';
 import PageLayout from './common/PageLayout';
 import QuizComponent from './pages/quiz';
-import Start from './pages/Start';
+import Start from './pages/start';
 import Verdict from './pages/verdict';
 import { Quiz, quizInit } from './common/quiz';
 import { QuestionWithAnswers } from '../graphql/schema.generated';

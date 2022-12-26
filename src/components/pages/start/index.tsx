@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Space } from 'antd';
 
-import { Quiz, quizInit } from '../common/quiz';
-import { getQuizStatus, QuizStatus } from '../common/helpers';
-import { QuestionWithAnswers } from '../../graphql/schema.generated';
-import { useQuestionsWithAnswersQuery } from '../../graphql/quiz.generated';
+import { Quiz, quizInit } from '../../common/quiz';
+import { getQuizStatus, QuizStatus } from '../../common/helpers';
+import { QuestionWithAnswers } from '../../../graphql/schema.generated';
+import { useQuestionsWithAnswersQuery } from '../../../graphql/quiz.generated';
 
 type Props = {
   questions: QuestionWithAnswers[];
@@ -56,7 +56,7 @@ const Start = ({ questions, setQuestions, quiz, setQuiz }: Props) => {
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 2, span: 16 }}>
-            <Button type='primary' htmlType='submit'>
+            <Button data-test='start=bttn' type='primary' htmlType='submit'>
               Submit
             </Button>
           </Form.Item>
