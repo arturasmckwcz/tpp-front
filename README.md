@@ -2,7 +2,7 @@
 
 ## How to run:
 
-The first of all you need to clone this repo cd to it and `yarn start`. And before starting it please make sure the backend is up'n'running.
+The first of all you need to clone this repo. And before starting it please make sure the backend is up'n'running.
 For this you may either
 1. Run already dockerized image:
 ```
@@ -13,6 +13,15 @@ docker run -p 3009:3000 -d arturasmckwcz/ttp-backend
 yarn compile:clear && PORT=3009 node ./dist/index.js
 ```
 
+Once the backend is running on http://localhost:3009 do the following in the project root folder:
+1. create `.env` from `.env.sample`:
+```
+cp .env.sample .env
+```
+2. launch the app:
+```
+yarn && yarn start
+```
 
 ## Original Terms Of Reference
 
