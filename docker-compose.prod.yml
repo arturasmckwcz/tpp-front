@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: ttp-front-prod
+    image: ttp-front-prod
+    build:
+      target: production
+    ports:
+      - 80:80
